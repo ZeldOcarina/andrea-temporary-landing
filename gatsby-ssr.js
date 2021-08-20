@@ -4,7 +4,7 @@ require("./src/scss/index.scss");
 const GlobalStyles = require("./src/styles/global-styles").default;
 const Layout = require("./src/layout/Layout").default;
 
-exports.wrapRootElement = ({ element }) => {
+exports.wrapPageElement = ({ element }) => {
   return (
     <>
       <GlobalStyles />
