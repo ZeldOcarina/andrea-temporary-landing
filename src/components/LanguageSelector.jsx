@@ -69,7 +69,7 @@ const LanguageSelector = (props) => {
           return (
             active && (
               <div key={i} className="flag-item">
-                <img src={image} className="flag" />
+                <img src={image} className="flag" alt={name} />
                 <span className="country-name">{name}</span>
               </div>
             )
@@ -79,8 +79,9 @@ const LanguageSelector = (props) => {
         <div className="items-container">
           {languages.map(({ name, image, active }, i) => {
             return (
+              // eslint-disable-next-line
               <div key={i} className="flag-item" role="listbox" onClick={(e) => activateLanguage(name, e)}>
-                <img src={image} className="flag" />
+                <img src={image} className="flag" alt={name} />
                 <span className="country-name">{name}</span>
               </div>
             );

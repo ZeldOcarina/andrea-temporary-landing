@@ -21,6 +21,7 @@ module.exports = {
         implementation: require("node-sass"),
       },
     },
+    `gatsby-transformer-json`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -28,7 +29,16 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
-    } /*
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "businesses",
+        path: "./src/content/",
+      },
+      __key: "businesses",
+    },
+    /*
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -36,8 +46,7 @@ module.exports = {
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
-    },*/,
-    {
+    },*/ {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {

@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 
-import brushSign from "../images/brush.svg";
+import Button from "../components/Button";
+import BrushedTitle from "../components/BrushedTitle";
 
 const Wrapper = styled.header`
   position: relative;
@@ -23,7 +24,7 @@ const Wrapper = styled.header`
   }
 
   .content-container {
-    width: 30%;
+    width: 40%;
     left: 0;
     top: 0;
     transform: translateY(12rem);
@@ -43,28 +44,9 @@ const Wrapper = styled.header`
     font-weight: 400;
   }
 
-  .title {
-    position: relative;
-    font-family: var(--alternative-font);
-    font-size: 7rem;
-  }
-
-  .companies {
-    position: relative;
-  }
-
-  .brush {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(1.5);
-  }
-
   .features {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    min-width: max-content;
     color: var(--white);
     border: 1px solid white;
     border-top: none;
@@ -89,8 +71,12 @@ const Wrapper = styled.header`
 
   .logos {
     z-index: 5;
-    width: max-content;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
   }
 
   .logo {
@@ -102,19 +88,7 @@ const Wrapper = styled.header`
   }
 
   .hero-link {
-    position: relative;
-    color: var(--black);
-    background-color: var(--color-primary);
-    padding: 2rem 4rem;
-    display: block;
-    width: max-content;
-    font-weight: 700;
     margin: 4rem auto 0 auto;
-    transition: all 0.2s ease-in-out;
-
-    &:hover {
-      transform: scale(1.03);
-    }
   }
 `;
 
@@ -130,10 +104,7 @@ const Hero = () => {
       />
       <div className="container content-container">
         <h1 className="pre-title">We Scale</h1>
-        <div className="companies">
-          <h2 className="title">Companies</h2>
-          <img src={brushSign} alt="decorative yellow brush sign" className="brush" />
-        </div>
+        <BrushedTitle className="companies">Companies</BrushedTitle>
         <div className="features">
           <span className="features-text">Andrea's projects have been featured in</span>
           <div className="logos">
@@ -143,13 +114,7 @@ const Hero = () => {
               layout="constrained"
               width={100}
               className="forbes logo"
-            />
-            <StaticImage
-              src="../images/features/glamour.png"
-              placeholder="tracedSVG"
-              layout="constrained"
-              width={100}
-              className="logo"
+              alt="forbes logo"
             />
             <StaticImage
               src="../images/features/vanity-fair.png"
@@ -157,6 +122,7 @@ const Hero = () => {
               layout="constrained"
               width={100}
               className="logo"
+              alt="vanity fair logo"
             />
             <StaticImage
               src="../images/features/glamour.png"
@@ -164,12 +130,61 @@ const Hero = () => {
               layout="constrained"
               width={100}
               className="logo"
+              alt="glamour logo"
+            />
+            <StaticImage
+              src="../images/features/economist.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="the economist logo"
+            />
+            <StaticImage
+              src="../images/features/yahoo-finance.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="yahoo finance logo"
+            />
+            <StaticImage
+              src="../images/features/market-finance.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="market finance logo"
+            />
+            <StaticImage
+              src="../images/features/medium.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="medium logo"
+            />
+            <StaticImage
+              src="../images/features/vocal.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="vocal logo"
+            />
+            <StaticImage
+              src="../images/features/my-trending-stories.png"
+              placeholder="tracedSVG"
+              layout="constrained"
+              width={100}
+              className="logo"
+              alt="my trending stories logo"
             />
           </div>
         </div>
-        <a href="https://google.com" className="hero-link">
+        <Button href="https://google.com" className="hero-link">
           SCHEDULE A BREAKTHROUGH CALL
-        </a>
+        </Button>
       </div>
     </Wrapper>
   );

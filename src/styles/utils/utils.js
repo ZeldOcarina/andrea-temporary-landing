@@ -106,4 +106,8 @@ export default createGlobalStyle`
   .bg-dark {
     background-color: var(--black);
   }
+
+  .text-white {
+    color: var(--white);
+  }
   `;
