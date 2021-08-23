@@ -44,9 +44,9 @@ const Businesses = ({ data }) => {
 
   return (
     <Wrapper>
-      <h3 className="pre-title">Here are some of the companies that Andrea has</h3>
+      <h3 className="pre-title">Meet some of</h3>
       <BrushedTitle scale={1.5} fontSize="5rem">
-        Passionately Built
+        Our businesses
       </BrushedTitle>
       <div className="grid">
         {data.nodes.map((businessData, i) => {

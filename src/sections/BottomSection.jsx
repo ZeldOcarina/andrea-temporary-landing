@@ -31,7 +31,7 @@ const BottomSection = () => {
   return (
     <Wrapper>
       <BrushedTitle>Who we are</BrushedTitle>
-      <h2 class="after-title">And who we are not</h2>
+      <h2 class="after-title">And who are we not</h2>
       <StaticImage
         alt="Andrea d'Agostini on a stage"
         src="../images/bottom-section.png"

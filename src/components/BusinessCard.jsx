@@ -60,6 +60,11 @@ const Wrapper = styled.article`
     margin-top: auto;
     z-index: 100;
   }
+
+  .content-link {
+    font-weight: bold;
+    color: var(--white);
+  }
 `;
 
 const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, even, name, color }) => {
@@ -77,7 +82,10 @@ const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, 
     <Wrapper ref={card} style={{ height }} even={even}>
       <div className="card-container">
         <GatsbyImage image={gatsbyLogo} alt={`${name} logo`} className="logo" />
-        <p className={color === "white" ? "description text-white" : "description"}>{content}</p>
+        <p
+          className={color === "white" ? "description text-white" : "description"}
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></p>
         <a href={link} className="link">
           <Button className="btn">{cta}</Button>
         </a>

@@ -12,7 +12,7 @@
     "name": "Serendipity",
     "logo": "../images/businesses/serendipity-logo.png",
     "box": "../images/businesses/serendipity-box.png",
-    "content": "Our film production company launching the new Series Women of the Movement on ABC January 2022. Do you have a great idea? Reach out to our creative team.",
+    "content": "Our film production company launching its new series \"Women of the Movement\" on ABC January 2022. Read more about it <a class=\"content-link\" href=\"https://deadline.com/2020/08/abc-women-of-the-movement-limited-series-marissa-jo-cerar-jay-z-will-smith-kapital-gina-prince-bythewood-direct-1203025965/\">here on Deadline.</a>",
     "extraLogo": "../images/businesses/abc-logo.png",
     "extraContent": "airing january 22 on",
     "cta": "Visit Serendipity",
@@ -23,7 +23,7 @@
     "name": "Tenute di Donna",
     "logo": "../images/businesses/didonna-logo.png",
     "box": "../images/businesses/didonna-box.png",
-    "content": "Wine is an Art and ours is true poetry. Tenute Di Donna will bring you the intense flavor of the Primitivo di Puglia (Italy) one of the best wines in the world. A wine Intense, romantic, passioante and in love. An experience in itself.",
+    "content": "Wine is an art and ours is true poetry. Tenute Di Donna will bring you the intense flavor of the Primitivo di Puglia (Italy), one of the best wines in the world. A wine intense, romantic, passionate and in love. An experienc in itself. Learn more here.",
     "extraContent": "airing january 22 on",
     "cta": "Learn More",
     "link": "http://www.tenutedidonna.it/index.php",
@@ -33,7 +33,7 @@
     "name": "AdyProduction",
     "logo": "../images/businesses/adyproduction-logo.png",
     "box": "../images/businesses/adyproduction-box.png",
-    "content": "Scaling businesses quicly to 7 figures and beyond. Our proven apporach helps CEOs and Executive teams to grow their businesses quickly and steadly. See if you qualify to enter our acceleration group.",
+    "content": "Scaling businesses quickly to 7 figures and beyond. Our proven approach helps CEOs and Executive teams grow their businesses quickly and steadly. See if you qualify to enter our acceleration group, get a quote.",
     "cta": "Get a Quote",
     "link": "https://adyproduction.com/",
     "color": "white"
@@ -42,7 +42,7 @@
     "name": "DMZ",
     "logo": "../images/businesses/dmz-logo.png",
     "box": "../images/businesses/dmz-box.png",
-    "content": "Our top level Accounting, financial and tax management team located in Italy. With over 600 Customers, we have one of the most effectice professionals equipe on the market. If you are located in Italy our group is the best you can dream of.",
+    "content": "Our top level accounting, financial and tax management team located in Italy. With over 600 Customers, we have one of the most effective professional teams on the market. If you are located in Italy- our group is the best team to connect with us. Contact us and we can help you.",
     "cta": "Get a Quote",
     "link": "https://adyproduction.com/",
     "color:": "black"
@@ -51,7 +51,7 @@
     "name": "Viva Concepts",
     "logo": "../images/businesses/viva-logo.png",
     "box": "../images/businesses/viva-box.png",
-    "content": "Viva Concepts is the top referral marketing firm in the US for Dental Practices. Our technology and program helps dental offices to add $500,000 to $1,000,000 in 12 months or less. Are you a dental practice? You need to get in touch with us. ",
+    "content": "Viva Concepts is the top referral marketing firm in the US for Dental Practices. Our technology and program helps dental offices add $500,000 to $1,000,000 in 12 months or less. Are you a dental practice? You need to get in touch with us.",
     "cta": "Get in Touch",
     "link": "https://google.com/",
     "color": "black"
@@ -60,7 +60,7 @@
     "name": "Sales Jet",
     "logo": "../images/businesses/sj-logo.png",
     "box": "../images/businesses/sj-box.png",
-    "content": "We needed a marketing tool to run our campaigns and projects, so we built one. SalesJet is built by entrepreneurs for entrepreneurs. Want to learn more on how to use our marketing platform?",
+    "content": "We need the most effective marketing tools to run our campaigns and projects, so we built one. SalesJet is built by entrepreneurs for entrepreneurs. Want to learn more on how to use our marketing platform? Schedule an onboarding call now.",
     "cta": "Schedule an Onboarding Call",
     "link": "https://salesjet.io/",
     "color": "white"
@@ -69,7 +69,7 @@
     "name": "Body Contourz",
     "logo": "../images/businesses/bc-logo.png",
     "box": "../images/businesses/bc-box.png",
-    "content": "The most effective weight loss technology and program. We have just launched our franchising with 2 centers in Los Angeles, 1 in Atlanta and 1 in Tampa (opening soon). We guarantee results in the first session, you loose 2 inches of fat or your money back guaranteed.",
+    "content": "Introducing the most effective and state-of-the-art weight loss technology and program. We just launched our franchising with two centers in Los Angeles, one center in Atlanta, and one in Tampa (opening soon). We guarantee you will lose 2 inches in your first session, or your money back.",
     "cta": "Visit Body Contourz",
     "link": "https://bodycontourz.com/",
     "color": "black"
@@ -78,7 +78,7 @@
     "name": "Upliffs",
     "logo": "../images/businesses/upliffs-logo.png",
     "box": "../images/businesses/upliffs-box.png",
-    "content": "Our Fitness and lifestile brand. Because you need to have fun as well. I love this brand as my wife launched out of a wim during the pandemic. She couldn't find good home fitness equipment, so she decided to build a company around it.",
+    "content": "Our fitness and lifestyle brand, because you need to have fun as well. I love this brand as my wife launched out of a whim during the pandemic. She couldn't find good home fitness equipment, so she decided to build a company around it.",
     "cta": "Visit Upliffs",
     "link": "https://upliffs.com/",
     "color": "black"
@@ -87,7 +87,7 @@
     "name": "ANDA",
     "logo": "../images/businesses/anda-logo.png",
     "box": "../images/businesses/anda-box.png",
-    "content": "Started during the pandemic to support entrepreneurs, our Facebook Show reached thousands of entrepreneurs. We interviewed 127 top business owners and CEOs. New season launching soon ",
+    "content": "Started during the pandemic to support entrepreneurs, our Facebook Show reached thousands of entrepreneurs. We interviewed 127 top business owners and CEOs. New season launching soon.",
     "cta": "Visit ANDA",
     "link": "https://andaliveshow.com/",
     "color": "white"
