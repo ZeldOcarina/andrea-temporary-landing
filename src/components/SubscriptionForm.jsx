@@ -98,7 +98,12 @@ const SubscriptionForm = ({ success, setSuccess }) => {
 
   return (
     <Wrapper onSubmit={handleSubmit}>
-      <ReCAPTCHA ref={recaptchaRef} style={{ zIndex: 600 }} size="invisible" sitekey={process.env.RECAPTCHA_SITE_KEY} />
+      <ReCAPTCHA
+        ref={recaptchaRef}
+        style={{ zIndex: 600 }}
+        size="invisible"
+        sitekey="6LcAJiAcAAAAAEiAJniJyCXrxx-Cf7BYYq1uJrZ-"
+      />
       <input
         type="email"
         name="email"
