@@ -29,6 +29,7 @@ body {
   line-height: 1.5;
   background-color: var(--body-background);
   overflow-x: hidden;
+  overflow-y: hidden;
 
   ${respond(
     "phone-land",

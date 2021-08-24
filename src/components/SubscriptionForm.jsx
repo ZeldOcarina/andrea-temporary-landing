@@ -62,10 +62,10 @@ const SubscriptionForm = ({ success, setSuccess }) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if (!formData.privacy) return setSuccess({ success: false, message: "Please accept our privacy policy" });
-    if (!isEmail(formData.email)) return setSuccess({ success: false, message: "Please enter a valid email" });
-
-    console.log(formData);
+    if (!formData.privacy)
+      return setSuccess({ success: false, message: "Please accept our privacy policy", hidden: false });
+    if (!isEmail(formData.email))
+      return setSuccess({ success: false, message: "Please enter a valid email", hidden: false });
 
     const response = await fetch("https://sj-api.com/externalapp/track", {
       method: "POST",
@@ -78,7 +78,9 @@ const SubscriptionForm = ({ success, setSuccess }) => {
         contact: { email: formData.email },
       }),
     });
-    setSuccess({ success: true, message: "Form correctly submitted" });
+
+    if (response.status !== 200)
+      setSuccess({ success: false, message: "Unknown error. Please try again later.", hidden: false });
   }
 
   return (

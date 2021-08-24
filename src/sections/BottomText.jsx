@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  padding: 7rem;
-  transform: translateY(-15rem);
+  padding: 7rem 7rem 0 7rem;
+  transform: translateY(-30vh);
   background-color: var(--white);
-  margin-bottom: -10rem;
+  margin-bottom: -20vh;
 
   p {
     line-height: 1.4;

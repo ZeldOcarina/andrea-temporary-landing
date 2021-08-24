@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import SocialIcons from "../components/SocialIcons";
 import SubscriptionForm from "../components/SubscriptionForm";
+import AlertMessage from "../components/AlertMessage";
 
 const Wrapper = styled.section`
   background-color: var(--color-primary);
@@ -36,41 +37,29 @@ const Wrapper = styled.section`
   .icon {
     font-size: 3rem;
   }
-
-  .alert-message {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-weight: 700;
-    padding: 1.5rem;
-    border-radius: 3px;
-    left: 15%;
-    top: 2rem;
-  }
-
-  .alert-message.green {
-    background-color: #c5e3c3;
-  }
-
-  .alert-message.red {
-    background-color: #e3c3c3;
-  }
 `;
 
 const NewsletterSubscriber = () => {
-  const [success, setSuccess] = useState({ success: false, message: "" });
+  const [alertState, setAlertState] = useState({ success: false, message: "", hidden: true });
+
+  console.log(alertState);
 
   return (
     <Wrapper className="newsletter-block">
       <div className="container">
         <h2 className="title">RIMANI AGGIORNATO CON LE NOSTRE NEWS ED EVENTI</h2>
         <div className="form-container">
-          <SubscriptionForm success={success} setSuccess={setSuccess} />
+          <SubscriptionForm success={alertState.success} setSuccess={setAlertState} />
         </div>
         <SocialIcons />
       </div>
-      {success.message && (
-        <p className={success.success ? "alert-message green" : "alert-message red"}>{success.message}</p>
+      {alertState.message && (
+        <AlertMessage
+          message={alertState.message}
+          successful={alertState.success}
+          hidden={alertState.hidden}
+          setAlertState={setAlertState}
+        />
       )}
     </Wrapper>
   );

@@ -27,7 +27,7 @@ const Wrapper = styled.header`
     width: 40%;
     left: 0;
     top: 0;
-    transform: translateY(12rem);
+    transform: translateY(4rem);
     margin-left: 15%;
   }
 
@@ -125,7 +125,7 @@ const Hero = () => {
               alt="vanity fair logo"
             />
             <StaticImage
-              src="../images/features/glamour.png"
+              src="../images/features/glamour.svg"
               placeholder="tracedSVG"
               layout="constrained"
               width={100}
@@ -149,7 +149,7 @@ const Hero = () => {
               alt="yahoo finance logo"
             />
             <StaticImage
-              src="../images/features/market-finance.png"
+              src="../images/features/marketwatch.png"
               placeholder="tracedSVG"
               layout="constrained"
               width={100}
