@@ -86,9 +86,9 @@ const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, 
           className={color === "white" ? "description text-white" : "description"}
           dangerouslySetInnerHTML={{ __html: content }}
         ></p>
-        <a href={link} className="link">
-          <Button className="btn">{cta}</Button>
-        </a>
+        <Button className="btn" href={link}>
+          {cta}
+        </Button>
       </div>
       <GatsbyImage image={gatsbyBoxImage} alt={`${name} background`} className="bg-image" />
     </Wrapper>

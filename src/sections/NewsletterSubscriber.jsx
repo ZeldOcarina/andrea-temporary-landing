@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import SocialIcons from "../components/SocialIcons";
+import SubscriptionForm from "../components/SubscriptionForm";
 
 const Wrapper = styled.section`
   background-color: var(--color-primary);
-  padding: 2rem;
+  height: max-content;
+  padding: 8rem 0;
+  position: relative;
 
   .container {
     display: grid;
@@ -22,53 +25,53 @@ const Wrapper = styled.section`
   }
 
   .form-container {
-    grid-column: 5 / 9;
+    grid-column: 5 / 10;
     width: 100%;
-
-    .form {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      width: 100%;
-      height: 5rem;
-      font-size: 1.8rem;
-
-      .input {
-        padding-left: 1rem;
-      }
-
-      .button {
-        background-color: var(--black);
-        color: var(--white);
-        border: none;
-        padding: 0 1rem;
-      }
-    }
   }
 
   .social-icons-container {
-    grid-column: 9 / 13;
+    grid-column: 10 / 13;
   }
 
   .icon {
     font-size: 3rem;
   }
+
+  .alert-message {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-weight: 700;
+    padding: 1.5rem;
+    border-radius: 3px;
+    left: 15%;
+    top: 2rem;
+  }
+
+  .alert-message.green {
+    background-color: #c5e3c3;
+  }
+
+  .alert-message.red {
+    background-color: #e3c3c3;
+  }
 `;
 
 const NewsletterSubscriber = () => {
+  const [success, setSuccess] = useState({ success: false, message: "" });
+
   return (
     <Wrapper className="newsletter-block">
       <div className="container">
         <h2 className="title">RIMANI AGGIORNATO CON LE NOSTRE NEWS ED EVENTI</h2>
         <div className="form-container">
-          <form className="form">
-            <input type="text" name="email" className="input" id="subscriber-email" placeholder="Email" />
-            <button type="submit" className="button">
-              SUBSCRIBE{" "}
-            </button>
-          </form>
+          <SubscriptionForm success={success} setSuccess={setSuccess} />
         </div>
         <SocialIcons />
       </div>
+      {success.message && (
+        <p className={success.success ? "alert-message green" : "alert-message red"}>{success.message}</p>
+      )}
     </Wrapper>
   );
 };

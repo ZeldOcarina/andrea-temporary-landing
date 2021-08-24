@@ -110,4 +110,12 @@ export default createGlobalStyle`
   .text-white {
     color: var(--white);
   }
+
+  
+  .green {
+    color: green;
+  }
+  .red {
+    color: red;
+  }
   `;
