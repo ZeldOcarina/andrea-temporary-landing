@@ -7,7 +7,7 @@ export default async function checkToken({ token, ip }) {
       method: "POST",
       url: "https://www.google.com/recaptcha/api/siteverify",
       data: querystring.stringify({
-        secret: process.env.GATSBY_RECAPTCHA_SECRET_KEY,
+        secret: process.env.RECAPTCHA_SECRET_KEY,
         response: token,
         remoteip: ip,
       }),
