@@ -82,7 +82,7 @@ const SubscriptionForm = ({ success, setSuccess }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: process.env.SALESJET_KEY,
+        Authorization: process.env.GATSBY_SALESJET_KEY,
       },
       body: JSON.stringify({
         event_name: "newsletter_subscription",
@@ -102,7 +102,7 @@ const SubscriptionForm = ({ success, setSuccess }) => {
         ref={recaptchaRef}
         style={{ zIndex: 600 }}
         size="invisible"
-        sitekey="6LcAJiAcAAAAAEiAJniJyCXrxx-Cf7BYYq1uJrZ-"
+        sitekey={process.env.GATSBY_RECAPTCHA_SITE_KEY}
       />
       <input
         type="email"
