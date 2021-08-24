@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
+
+import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 
 const Wrapper = styled.form`
   display: grid;
@@ -52,10 +55,10 @@ const Wrapper = styled.form`
 
 const SubscriptionForm = ({ success, setSuccess }) => {
   const [formData, setFormData] = useState({ email: "", privacy: false });
+  const recaptchaRef = useRef();
 
   function handleChange(e) {
     const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-
     setFormData({ ...formData, [e.target.name]: value });
   }
 
@@ -66,6 +69,14 @@ const SubscriptionForm = ({ success, setSuccess }) => {
       return setSuccess({ success: false, message: "Please accept our privacy policy", hidden: false });
     if (!isEmail(formData.email))
       return setSuccess({ success: false, message: "Please enter a valid email", hidden: false });
+
+    try {
+      const token = await recaptchaRef.current.executeAsync();
+      const tokenResponse = await axios.post("/api/recaptcha-check", { token });
+    } catch (err) {
+      if (err.response.status === 403)
+        return setSuccess({ success: false, message: "Invalid Recaptcha", hidden: false });
+    }
 
     const response = await fetch("https://sj-api.com/externalapp/track", {
       method: "POST",
@@ -81,10 +92,13 @@ const SubscriptionForm = ({ success, setSuccess }) => {
 
     if (response.status !== 200)
       setSuccess({ success: false, message: "Unknown error. Please try again later.", hidden: false });
+
+    setSuccess({ success: true, message: "Form correctly sent. Thank you!", hidden: false });
   }
 
   return (
-    <Wrapper>
+    <Wrapper onSubmit={handleSubmit}>
+      <ReCAPTCHA ref={recaptchaRef} style={{ zIndex: 600 }} size="invisible" sitekey={process.env.RECAPTCHA_SITE_KEY} />
       <input
         type="email"
         name="email"
@@ -94,7 +108,6 @@ const SubscriptionForm = ({ success, setSuccess }) => {
         onChange={handleChange}
         value={formData.email}
       />
-
       <input
         type="checkbox"
         className="checkbox"
@@ -110,7 +123,7 @@ const SubscriptionForm = ({ success, setSuccess }) => {
         Andrea d'Agostini.
       </label>
 
-      <button type="submit" className="button" onClick={handleSubmit}>
+      <button type="submit" className="button">
         SUBSCRIBE{" "}
       </button>
     </Wrapper>
