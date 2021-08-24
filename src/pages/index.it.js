@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { graphql } from "gatsby";
 
 import Hero from "../sections/Hero";
@@ -7,11 +7,19 @@ import BottomSection from "../sections/BottomSection";
 import BottomText from "../sections/BottomText";
 import NewsletterSubscriber from "../sections/NewsletterSubscriber";
 
-const IndexPage = ({ data: { allBusinessesJson } }) => {
+import LanguageContext from "../context/languageContext";
+
+const IndexPage = ({ data: { allBusinessesItJson }, location }) => {
+  console.log(location);
+  const languageData = useContext(LanguageContext);
+
+  useEffect(() => {
+    if (languageData && languageData.setLanguage) languageData.setLanguage("it");
+  }, [languageData]);
   return (
     <main>
       <Hero />
-      <Businesses data={allBusinessesJson} />
+      <Businesses data={allBusinessesItJson} />
       <NewsletterSubscriber />
       <BottomSection />
       <BottomText />
@@ -21,7 +29,7 @@ const IndexPage = ({ data: { allBusinessesJson } }) => {
 
 export const query = graphql`
   {
-    allBusinessesJson {
+    allBusinessesItJson {
       nodes {
         extraContent
         extraLogo {

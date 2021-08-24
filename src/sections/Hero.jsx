@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
 
 import Button from "../components/Button";
 import BrushedTitle from "../components/BrushedTitle";
+
+import LanguageContext from "../context/languageContext";
 
 const Wrapper = styled.header`
   position: relative;
@@ -93,6 +95,14 @@ const Wrapper = styled.header`
 `;
 
 const Hero = () => {
+  const { languageData } = useContext(LanguageContext);
+  console.log(languageData.hero?.cta);
+
+  while (!languageData.hero?.cta) return "";
+  const {
+    hero: { cta, iconsTitle, preTitle, title },
+  } = languageData;
+
   return (
     <Wrapper>
       <StaticImage
@@ -103,10 +113,10 @@ const Hero = () => {
         className="hero-image"
       />
       <div className="container content-container">
-        <h1 className="pre-title">We Scale</h1>
-        <BrushedTitle className="companies">Companies</BrushedTitle>
+        <h1 className="pre-title">{preTitle}</h1>
+        <BrushedTitle className="companies">{title}</BrushedTitle>
         <div className="features">
-          <span className="features-text">Andrea's projects have been featured in</span>
+          <span className="features-text">{iconsTitle}</span>
           <div className="logos">
             <StaticImage
               src="../images/features/forbes.png"
@@ -183,7 +193,7 @@ const Hero = () => {
           </div>
         </div>
         <Button href="https://google.com" className="hero-link">
-          SCHEDULE A BREAKTHROUGH CALL
+          {cta}
         </Button>
       </div>
     </Wrapper>

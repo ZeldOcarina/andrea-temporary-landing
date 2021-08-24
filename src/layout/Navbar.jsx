@@ -20,7 +20,7 @@ const Wrapper = styled.nav`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({ location }) => {
   return (
     <Wrapper>
       <div className="container">
@@ -31,7 +31,7 @@ const Navbar = () => {
           placeholder="blurred"
           alt="Andrea d'Agostini Logo"
         />
-        <LanguageSelector />
+        <LanguageSelector location={location} />
       </div>
     </Wrapper>
   );

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
+import { navigate } from "gatsby";
 
 import italyFlag from "../images/flags/it.svg";
 import usFlag from "../images/flags/us.svg";
 import { BsTriangleFill } from "react-icons/bs";
+import LanguageContext from "../context/languageContext";
 
 const Wrapper = styled.div`
   display: flex;
@@ -39,15 +41,19 @@ const Wrapper = styled.div`
   }
 `;
 
-const LanguageSelector = (props) => {
+const LanguageSelector = ({ location }) => {
+  console.log(location);
+  const { setLanguage } = React.useContext(LanguageContext);
   const [languages, setLanguages] = useState([
     {
       name: "english",
+      abbreviation: "en",
       image: usFlag,
       active: true,
     },
     {
       name: "italian",
+      abbreviation: "it",
       image: italyFlag,
       active: false,
     },
@@ -57,10 +63,26 @@ const LanguageSelector = (props) => {
 
   function activateLanguage(name, e) {
     const newLanguages = languages.map((language) => {
-      return { name: language.name, image: language.image, active: (language.active = language.name === name) };
+      if (language.active) {
+        setLanguage(language.abbreviation);
+      }
+      return {
+        ...language,
+        active: (language.active = language.name === name),
+      };
     });
+
     setLanguages(newLanguages);
+    navigate(`/${name[0] + name[1]}`);
   }
+
+  useEffect(() => {
+    if (location.pathname === "/en") {
+      activateLanguage("english");
+    } else if (location.pathname === "/it") {
+      activateLanguage("italian");
+    }
+  }, []);
 
   return (
     <Wrapper className="language-selector" onClick={() => setActiveMenu(!activeMenu)} activeMenu={activeMenu}>

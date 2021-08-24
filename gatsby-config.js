@@ -38,6 +38,15 @@ module.exports = {
       },
       __key: "businesses",
     },
+    {
+      resolve: "gatsby-plugin-i18n",
+      options: {
+        langKeyDefault: "en",
+        useLangKeyLayout: true,
+        langKeyForNull: "en",
+        prefixDefault: true,
+      },
+    },
     /*
     {
       resolve: `gatsby-source-contentful`,

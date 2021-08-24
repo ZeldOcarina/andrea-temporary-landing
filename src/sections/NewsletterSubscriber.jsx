@@ -42,8 +42,6 @@ const Wrapper = styled.section`
 const NewsletterSubscriber = () => {
   const [alertState, setAlertState] = useState({ success: false, message: "", hidden: true });
 
-  console.log(alertState);
-
   return (
     <Wrapper className="newsletter-block">
       <div className="container">
