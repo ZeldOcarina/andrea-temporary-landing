@@ -13,6 +13,7 @@
     "startClean": "gatsby clean && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
+    "manualServe": "serve public",
     "clean": "gatsby clean"
   },
   "dependencies": {
