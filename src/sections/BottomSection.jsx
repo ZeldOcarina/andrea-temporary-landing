@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StaticImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
 import BrushedTitle from "../components/BrushedTitle";
+import BottomText from "../components/BottomText";
+
+import LanguageContext from "../context/languageContext";
 
 const Wrapper = styled.section`
   position: relative;
@@ -28,18 +31,29 @@ const Wrapper = styled.section`
 `;
 
 const BottomSection = () => {
+  const { languageData } = useContext(LanguageContext);
+
+  console.log(languageData);
+  while (!languageData.bottomSection?.title) return "";
+
+  const {
+    bottomSection: { content, subtitle, title },
+  } = languageData;
   return (
-    <Wrapper>
-      <BrushedTitle>Who we are</BrushedTitle>
-      <h2 className="after-title">And who are we not</h2>
-      <StaticImage
-        alt="Andrea d'Agostini on a stage"
-        src="../images/bottom-section.png"
-        placeholder="tracedSVG"
-        layout="fullWidth"
-        className="bg-image"
-      />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <BrushedTitle>{title}</BrushedTitle>
+        <h2 className="after-title">{subtitle}</h2>
+        <StaticImage
+          alt="Andrea d'Agostini on a stage"
+          src="../images/bottom-section.png"
+          placeholder="tracedSVG"
+          layout="fullWidth"
+          className="bg-image"
+        />
+      </Wrapper>
+      <BottomText content={content} />
+    </>
   );
 };
 

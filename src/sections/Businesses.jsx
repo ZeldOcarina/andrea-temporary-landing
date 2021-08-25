@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import respond from "../styles/abstracts/mediaqueries";
 import { useMediaQuery } from "react-responsive";
 
 import BusinessCard from "../components/BusinessCard";
 import BrushedTitle from "../components/BrushedTitle";
+
+import LanguageContext from "../context/languageContext";
 
 const Wrapper = styled.section`
   padding-bottom: 0;
@@ -38,15 +40,21 @@ const Wrapper = styled.section`
 `;
 
 const Businesses = ({ data }) => {
+  const { languageData } = useContext(LanguageContext);
   const isLaptop = useMediaQuery({
     query: "(max-width: 102.18em)",
   });
 
+  while (!languageData.businesses?.title) return "";
+  const {
+    businesses: { preTitle, title },
+  } = languageData;
+
   return (
     <Wrapper>
-      <h3 className="pre-title">Meet some of</h3>
+      <h3 className="pre-title">{preTitle}</h3>
       <BrushedTitle scale={1.5} fontSize="5rem">
-        Our businesses
+        {title}
       </BrushedTitle>
       <div className="grid">
         {data.nodes.map((businessData, i) => {

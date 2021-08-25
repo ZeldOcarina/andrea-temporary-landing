@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import Hero from "../sections/Hero";
 import Businesses from "../sections/Businesses";
 import BottomSection from "../sections/BottomSection";
-import BottomText from "../sections/BottomText";
 import NewsletterSubscriber from "../sections/NewsletterSubscriber";
 
 import LanguageContext from "../context/languageContext";
@@ -22,7 +21,6 @@ const IndexPage = ({ data: { allBusinessesEnJson } }) => {
       <Businesses data={allBusinessesEnJson} />
       <NewsletterSubscriber />
       <BottomSection />
-      <BottomText />
     </main>
   );
 };

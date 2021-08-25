@@ -96,7 +96,6 @@ const Wrapper = styled.header`
 
 const Hero = () => {
   const { languageData } = useContext(LanguageContext);
-  console.log(languageData.hero?.cta);
 
   while (!languageData.hero?.cta) return "";
   const {

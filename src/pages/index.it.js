@@ -4,13 +4,11 @@ import { graphql } from "gatsby";
 import Hero from "../sections/Hero";
 import Businesses from "../sections/Businesses";
 import BottomSection from "../sections/BottomSection";
-import BottomText from "../sections/BottomText";
 import NewsletterSubscriber from "../sections/NewsletterSubscriber";
 
 import LanguageContext from "../context/languageContext";
 
 const IndexPage = ({ data: { allBusinessesItJson }, location }) => {
-  console.log(location);
   const languageData = useContext(LanguageContext);
 
   useEffect(() => {
@@ -22,7 +20,6 @@ const IndexPage = ({ data: { allBusinessesItJson }, location }) => {
       <Businesses data={allBusinessesItJson} />
       <NewsletterSubscriber />
       <BottomSection />
-      <BottomText />
     </main>
   );
 };

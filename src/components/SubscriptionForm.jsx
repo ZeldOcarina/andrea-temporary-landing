@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
 
@@ -7,16 +7,13 @@ import axios from "axios";
 
 const Wrapper = styled.form`
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(14, 1fr);
   justify-content: center;
   align-content: center;
   align-items: center;
   justify-items: center;
   width: 100%;
-  height: 5rem;
   font-size: 1.8rem;
-  grid-row-gap: 2rem;
 
   .input,
   .button {
@@ -25,35 +22,37 @@ const Wrapper = styled.form`
 
   .input {
     padding-left: 1rem;
-    grid-row: 1 / 2;
-    grid-column: 1/4;
     width: 100%;
-  }
-
-  .checkbox {
-    transform: scale(2);
-    grid-row: 2/3;
-    grid-column: 1/2;
-  }
-
-  .label {
-    grid-column: 2 / 6;
-    font-size: 1.4rem;
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
   }
 
   .button {
     background-color: var(--black);
     color: var(--white);
     border: none;
-    padding: 0 1rem;
     cursor: pointer;
-    grid-column: 4/6;
+    grid-column: 6/8;
     grid-row: 1/2;
     width: 100%;
+    text-transform: uppercase;
+  }
+
+  .checkbox {
+    transform: scale(2);
+    grid-column: 8 / 9;
+    grid-row: 1 / 2;
+  }
+
+  .label {
+    font-size: 1.4rem;
+    grid-column: 9 / 15;
+    grid-row: 1 / 2;
+    line-height: 1.3;
   }
 `;
 
-const SubscriptionForm = ({ success, setSuccess }) => {
+const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
   const [formData, setFormData] = useState({ email: "", privacy: false });
   const recaptchaRef = useRef();
 
@@ -123,13 +122,10 @@ const SubscriptionForm = ({ success, setSuccess }) => {
         checked={formData.privacy}
       />
       <label type="checkbox" name="privacy" htmlFor="privacy" className="label">
-        I agree to this website Terms of Service and acknowledge its <a href="https://google.com">Privacy Policy</a>,
-        including the cookie policy. I understand and agree that I will receive promotional content to my email by
-        Andrea d'Agostini.
+        {privacy}
       </label>
-
       <button type="submit" className="button">
-        SUBSCRIBE{" "}
+        {cta}{" "}
       </button>
     </Wrapper>
   );

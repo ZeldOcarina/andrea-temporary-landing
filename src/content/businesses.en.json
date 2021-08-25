@@ -44,7 +44,7 @@
     "box": "../images/businesses/dmz-box.png",
     "content": "Our top level accounting, financial and tax management team located in Italy. With over 600 Customers, we have one of the most effective professional teams on the market. If you are located in Italy- our group is the best team to connect with us. Contact us and we can help you.",
     "cta": "Get a Quote",
-    "link": "https://adyproduction.com/",
+    "link": "https://studiodmz.it/",
     "color:": "black"
   },
   {
@@ -53,15 +53,15 @@
     "box": "../images/businesses/viva-box.png",
     "content": "Viva Concepts is the top referral marketing firm in the US for Dental Practices. Our technology and program helps dental offices add $500,000 to $1,000,000 in 12 months or less. Are you a dental practice? You need to get in touch with us.",
     "cta": "Get in Touch",
-    "link": "https://google.com/",
+    "link": "https://calendly.com/viva-concepts/schedule-a-call",
     "color": "black"
   },
   {
     "name": "Sales Jet",
     "logo": "../images/businesses/sj-logo.png",
     "box": "../images/businesses/sj-box.png",
-    "content": "We need the most effective marketing tools to run our campaigns and projects, so we built one. SalesJet is built by entrepreneurs for entrepreneurs. Want to learn more on how to use our marketing platform? Schedule an onboarding call now.",
-    "cta": "Schedule an Onboarding Call",
+    "content": "We needed the most effective marketing tools to run our campaigns and projects, so we built one. Sales Jet is built by entrepreneurs for entrepreneurs. Want to learn more on how to use our marketing platform? Visit our website now.",
+    "cta": "Explore Sales Jet",
     "link": "https://salesjet.io/",
     "color": "white"
   },

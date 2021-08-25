@@ -42,7 +42,6 @@ const Wrapper = styled.div`
 `;
 
 const LanguageSelector = ({ location }) => {
-  console.log(location);
   const { setLanguage } = React.useContext(LanguageContext);
   const [languages, setLanguages] = useState([
     {
