@@ -1,4 +1,4 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import isEmail from "validator/lib/isEmail";
 
@@ -71,10 +71,11 @@ const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
 
     try {
       const token = await recaptchaRef.current.executeAsync();
-      const tokenResponse = await axios.post("/api/recaptcha-check", { token });
+      await axios.post("/api/recaptcha-check", { token });
     } catch (err) {
       if (err.response.status === 403)
         return setSuccess({ success: false, message: "Invalid Recaptcha", hidden: false });
+      setSuccess({ success: false, message: "Unknown error", hidden: false });
     }
 
     const response = await fetch("https://sj-api.com/externalapp/track", {
