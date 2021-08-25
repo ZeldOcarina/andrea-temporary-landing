@@ -59,7 +59,7 @@ const Wrapper = styled.nav`
 
 const Navbar = ({ location }) => {
   const languageData = useContext(LanguageContext);
-  console.log(languageData);
+
   return (
     <Wrapper>
       <div className="container">

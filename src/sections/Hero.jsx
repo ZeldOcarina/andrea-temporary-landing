@@ -224,10 +224,10 @@ const Hero = () => {
     hero: { cta, iconsTitle, preTitle, title },
   } = languageData;
 
-  if (isTabLand) console.log("tab-land");
-  if (isTabPort) console.log("tab-port");
-  if (isPhoneLand) console.log("phone-land");
-  if (isPhonePort) console.log("phone-port");
+  // if (isTabLand) console.log("tab-land");
+  // if (isTabPort) console.log("tab-port");
+  // if (isPhoneLand) console.log("phone-land");
+  // if (isPhonePort) console.log("phone-port");
 
   return (
     <Wrapper>
