@@ -9,7 +9,7 @@ import LanguageContext from "../context/languageContext";
 const Wrapper = styled.section`
   background-color: var(--color-primary);
   height: max-content;
-  padding: 8rem 0;
+  padding: 4rem 0;
   position: relative;
 
   .container {
@@ -24,10 +24,11 @@ const Wrapper = styled.section`
   .title {
     grid-column: 1 / 4;
     font-size: 2.2rem;
+    text-transform: uppercase;
   }
 
   .form-container {
-    grid-column: 5 / 13;
+    grid-column: 4 / 13;
     width: 100%;
   }
 

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
+import { Link } from "gatsby";
 
 import LanguageSelector from "../components/LanguageSelector";
+
+import LanguageContext from "../context/languageContext";
 
 const Wrapper = styled.nav`
   color: var(--white);
@@ -21,16 +24,21 @@ const Wrapper = styled.nav`
 `;
 
 const Navbar = ({ location }) => {
+  const languageData = useContext(LanguageContext);
+  console.log(languageData);
   return (
     <Wrapper>
       <div className="container">
-        <StaticImage
-          src="../images/logo.png"
-          layout="constrained"
-          width={300}
-          placeholder="blurred"
-          alt="Andrea d'Agostini Logo"
-        />
+        <Link to={`/${languageData.language}`}>
+          <StaticImage
+            src="../images/logo.png"
+            layout="constrained"
+            width={300}
+            placeholder="blurred"
+            alt="Andrea d'Agostini Logo"
+          />
+        </Link>
+
         <LanguageSelector location={location} />
       </div>
     </Wrapper>

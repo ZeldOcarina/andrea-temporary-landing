@@ -50,6 +50,10 @@ const Wrapper = styled.form`
     grid-row: 1 / 2;
     line-height: 1.3;
   }
+
+  a {
+    font-weight: 700;
+  }
 `;
 
 const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
@@ -122,9 +126,14 @@ const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
         value={formData.privacy}
         checked={formData.privacy}
       />
-      <label type="checkbox" name="privacy" htmlFor="privacy" className="label">
-        {privacy}
-      </label>
+      <label
+        type="checkbox"
+        name="privacy"
+        htmlFor="privacy"
+        className="label"
+        dangerouslySetInnerHTML={{ __html: privacy }}
+      />
+
       <button type="submit" className="button">
         {cta}{" "}
       </button>

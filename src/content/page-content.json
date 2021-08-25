@@ -13,7 +13,7 @@
     "subscriptionForm": {
       "title": "Stay in the loop on our news and events",
       "cta": "Subscribe",
-      "privacy": "I agree to this website Terms of Service and acknowledge its Privacy Policy, including the cookie policy. I understand and agree that I will receive promotional content to my email by Andrea d'Agostini.",
+      "privacy": "I agree to this website Terms of Service and acknowledge its <a href=\"/en/privacy\">Privacy Policy</a>, including the cookie policy. I understand and agree that I will receive promotional content to my email by Andrea d'Agostini.",
       "secondCta": "Stay always in touch"
     },
     "bottomSection": {
@@ -36,7 +36,7 @@
     "subscriptionForm": {
       "title": "RIMANI AGGIORNATO CON LE NOSTRE NEWS ED EVENTI",
       "cta": "Iscriviti",
-      "privacy": "Sono d'accordo con i termini e le condizioni di questo sito e riconosco la sua politica sulla privacy, ivi inclusa la politia sui cookie. Capisco e sono d'accordo sul ricevere materiale promozionale alla mia email da parte di Andrea d'Agostini.",
+      "privacy": "Sono d'accordo con i termini e le condizioni di questo sito e riconosco la sua <a href=\"/en/privacy/\">politica sulla privacy</a>, ivi inclusa la politica sui cookie. Capisco e sono d'accordo sul ricevere materiale promozionale alla mia email da parte di Andrea d'Agostini.",
       "secondCta": "Resta sempre connesso"
     },
     "bottomSection": {

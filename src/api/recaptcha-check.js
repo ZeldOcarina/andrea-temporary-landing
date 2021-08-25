@@ -6,7 +6,7 @@ export default async function checkRecaptcha(req, res) {
       token: req.body.token,
       //ip: req.ip,
     });
-    console.log(isTokenValid);
+    //console.log(isTokenValid);
     if (!isTokenValid) throw new Error("Invalid recaptcha");
     res.status(200).json({ status: "success", data: "Token is valid" });
   } catch (err) {
