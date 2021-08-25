@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, navigate } from "gatsby";
+import { Link } from "gatsby";
 
 // styles
 const pageStyles = {
@@ -26,7 +26,7 @@ const codeStyles = {
 
 // markup
 const NotFoundPage = ({ location }) => {
-  if (location.pathname === "/") return navigate("/en");
+  if (location.pathname === "/" && typeof window !== "undefined") return window.location.assign("/en");
   return (
     <main style={pageStyles}>
       <title>Not found</title>

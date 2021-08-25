@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { useMediaQuery } from "react-responsive";
 
 import brushSign from "../images/brush.svg";
 import respond from "../styles/abstracts/mediaqueries";

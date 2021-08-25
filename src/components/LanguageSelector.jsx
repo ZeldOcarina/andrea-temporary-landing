@@ -7,7 +7,6 @@ import italyFlag from "../images/flags/it.svg";
 import usFlag from "../images/flags/us.svg";
 import { BsTriangleFill } from "react-icons/bs";
 import LanguageContext from "../context/languageContext";
-import respond from "../styles/abstracts/mediaqueries";
 
 const Wrapper = styled.div`
   display: flex;
