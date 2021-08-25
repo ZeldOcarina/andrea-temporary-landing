@@ -58,6 +58,8 @@ const BottomSection = () => {
   const {
     bottomSection: { content, subtitle, title },
   } = languageData;
+
+  console.log(isPhonePort);
   return (
     <>
       <Wrapper>
