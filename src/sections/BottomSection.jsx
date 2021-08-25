@@ -33,7 +33,6 @@ const Wrapper = styled.section`
 const BottomSection = () => {
   const { languageData } = useContext(LanguageContext);
 
-  console.log(languageData);
   while (!languageData.bottomSection?.title) return "";
 
   const {
