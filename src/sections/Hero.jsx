@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { StaticImage } from "gatsby-plugin-image";
+import { useMediaQuery } from "react-responsive";
+import respond from "../styles/abstracts/mediaqueries";
 
 import Button from "../components/Button";
 import BrushedTitle from "../components/BrushedTitle";
@@ -11,6 +13,20 @@ const Wrapper = styled.header`
   position: relative;
   top: 0;
   height: 90vh;
+
+  ${respond(
+    "tab-port",
+    css`
+      height: 100vh;
+    `
+  )}
+  ${respond(
+    "phone-land",
+    css`
+      height: auto;
+      padding-bottom: 6rem;
+    `
+  )}
 
   & > * {
     position: relative;
@@ -28,9 +44,32 @@ const Wrapper = styled.header`
   .content-container {
     width: 40%;
     left: 0;
-    top: 0;
-    transform: translateY(4rem);
+    transform: translateY(-57%);
+    top: 50%;
     margin-left: 15%;
+
+    ${respond(
+      "tab-land",
+      css`
+        width: 75%;
+        margin-left: 0;
+        left: 50%;
+        transform: translateX(-50%) translateY(-60%);
+      `
+    )}
+    ${respond(
+      "phone-land",
+      css`
+        top: 0;
+        transform: translateX(-50%) translateY(0);
+      `
+    )}
+    ${respond(
+      "phone-port",
+      css`
+        width: 100%;
+      `
+    )}
   }
 
   .pre-title,
@@ -40,6 +79,13 @@ const Wrapper = styled.header`
     z-index: 100;
     font-size: 8rem;
     text-align: center;
+
+    ${respond(
+      "phone-port",
+      css`
+        font-size: 2.5rem;
+      `
+    )}
   }
 
   .pre-title {
@@ -65,6 +111,13 @@ const Wrapper = styled.header`
     left: 50%;
     transform: translateX(-50%);
     min-width: max-content;
+
+    ${respond(
+      "phone-port",
+      css`
+        font-size: 1.3rem;
+      `
+    )}
   }
 
   .forbes {
@@ -91,29 +144,99 @@ const Wrapper = styled.header`
 
   .hero-link {
     margin: 4rem auto 0 auto;
+
+    ${respond(
+      "phone-port",
+      css`
+        font-size: 1.6rem;
+        line-break: loose;
+        max-width: 100%;
+        text-align: center;
+      `
+    )}
   }
 `;
 
 const Hero = () => {
   const { languageData } = useContext(LanguageContext);
 
-  while (!languageData.hero?.cta) return "";
-  const {
-    hero: { cta, iconsTitle, preTitle, title },
-  } = languageData;
+  const isTabLand = useMediaQuery({
+    query: "(max-width: 75em)",
+  });
+  const isPhoneLand = useMediaQuery({
+    query: "(max-height: 400px)",
+  });
+  const isTabPort = useMediaQuery({
+    query: "(max-width: 56.25em)",
+  });
+  const isPhonePort = useMediaQuery({
+    query: "(max-width: 28.125em)",
+  });
 
-  return (
-    <Wrapper>
+  function setImage() {
+    if (isPhoneLand) {
+      console.log("phone-land");
+      return (
+        <StaticImage
+          src={"../images/hero-phone-land.png"}
+          placeholder="tracedSVG"
+          layout="fullWidth"
+          alt="Andrea d'Agostini talking on a stage in front of a crowded place"
+          className="hero-image"
+        />
+      );
+    }
+    if (isTabPort) {
+      return (
+        <StaticImage
+          src={"../images/hero-tab.png"}
+          placeholder="tracedSVG"
+          layout="fullWidth"
+          alt="Andrea d'Agostini talking on a stage in front of a crowded place"
+          className="hero-image"
+        />
+      );
+    }
+    if (isTabLand) {
+      return (
+        <StaticImage
+          src={"../images/hero-tab.png"}
+          placeholder="tracedSVG"
+          layout="fullWidth"
+          alt="Andrea d'Agostini talking on a stage in front of a crowded place"
+          className="hero-image"
+        />
+      );
+    }
+    return (
       <StaticImage
-        src="../images/hero.png"
+        src={"../images/hero.png"}
         placeholder="tracedSVG"
         layout="fullWidth"
         alt="Andrea d'Agostini talking on a stage in front of a crowded place"
         className="hero-image"
       />
+    );
+  }
+
+  while (!languageData.hero?.cta) return "";
+  const {
+    hero: { cta, iconsTitle, preTitle, title },
+  } = languageData;
+
+  if (isTabLand) console.log("tab-land");
+  if (isTabPort) console.log("tab-port");
+  if (isPhoneLand) console.log("phone-land");
+  if (isPhonePort) console.log("phone-port");
+
+  return (
+    <Wrapper>
+      {setImage()}
       <div className="container content-container">
         <h1 className="pre-title">{preTitle}</h1>
-        <BrushedTitle className="companies">{title}</BrushedTitle>
+        <BrushedTitle className="companies" fontSize={isPhonePort ? "4rem" : undefined}>
+          {title}
+        </BrushedTitle>
         <div className="features">
           <span className="features-text">{iconsTitle}</span>
           <div className="logos">

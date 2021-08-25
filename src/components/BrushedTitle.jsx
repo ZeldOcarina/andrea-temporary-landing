@@ -1,7 +1,9 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { useMediaQuery } from "react-responsive";
 
 import brushSign from "../images/brush.svg";
+import respond from "../styles/abstracts/mediaqueries";
 
 const Wrapper = styled.div`
   position: relative;
@@ -16,6 +18,13 @@ const Wrapper = styled.div`
         transform: translate(-50%, -50%) scale(${scale || 1.5});
       `;
     }}
+
+    ${respond(
+      "phone-port",
+      css`
+        transform: translate(-50%, -50%) scale(1);
+      `
+    )}
   }
 
   .title {

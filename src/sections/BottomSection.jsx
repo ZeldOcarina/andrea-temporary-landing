@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import respond from "../styles/abstracts/mediaqueries";
+import { useMediaQuery } from "react-responsive";
 
 import BrushedTitle from "../components/BrushedTitle";
 import BottomText from "../components/BottomText";
@@ -11,6 +13,20 @@ const Wrapper = styled.section`
   position: relative;
   padding-top: 8rem;
   padding-bottom: 60vh;
+
+  ${respond(
+    "tab-land",
+    css`
+      padding-bottom: 50vh;
+    `
+  )}
+  ${respond(
+    "phone-port",
+    css`
+      padding-top: 4rem;
+      padding-bottom: 60vh;
+    `
+  )}
 
   .bg-image {
     position: absolute;
@@ -31,6 +47,10 @@ const Wrapper = styled.section`
 `;
 
 const BottomSection = () => {
+  const isPhonePort = useMediaQuery({
+    query: "(max-width: 28.125em)",
+  });
+
   const { languageData } = useContext(LanguageContext);
 
   while (!languageData.bottomSection?.title) return "";
@@ -41,15 +61,25 @@ const BottomSection = () => {
   return (
     <>
       <Wrapper>
-        <BrushedTitle>{title}</BrushedTitle>
+        <BrushedTitle fontSize={isPhonePort && "3.5rem"}>{title}</BrushedTitle>
         <h2 className="after-title">{subtitle}</h2>
-        <StaticImage
-          alt="Andrea d'Agostini on a stage"
-          src="../images/bottom-section.png"
-          placeholder="tracedSVG"
-          layout="fullWidth"
-          className="bg-image"
-        />
+        {isPhonePort ? (
+          <StaticImage
+            alt="Andrea d'Agostini on a stage"
+            src="../images/bottom-section-mobile.png"
+            placeholder="tracedSVG"
+            layout="fullWidth"
+            className="bg-image"
+          />
+        ) : (
+          <StaticImage
+            alt="Andrea d'Agostini on a stage"
+            src="../images/bottom-section.png"
+            placeholder="tracedSVG"
+            layout="fullWidth"
+            className="bg-image"
+          />
+        )}
       </Wrapper>
       <BottomText content={content} />
     </>

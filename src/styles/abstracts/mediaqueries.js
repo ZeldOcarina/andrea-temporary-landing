@@ -9,9 +9,9 @@ function respond(breakpoint, css) {
                 ${css}
               }`; // 450px
     case "phone-land":
-      return `@media only screen and (max-width: 51.25em) {
+      return `@media only screen and (max-height: 400px) {
                 ${css}
-              }`; // 820px
+              }`; // 750px
     case "tab-port":
       return `@media only screen and (max-width: 56.25em) {
                 ${css}
@@ -25,11 +25,11 @@ function respond(breakpoint, css) {
                 ${css}
               }`; // 450px
     case "big-laptop":
-      return `@media only screen and (max-width: 115em) {
+      return `@media only screen and (max-width: 1920px) {
                 ${css}
-              }`; // 1740px
+              }`; // 1920px
     case "big-desktop":
-      return `@media only screen and (min-width: 112.5em) {
+      return `@media only screen and (min-width: 120em) {
                 ${css}
               }`; // 1740px
     case "4k-tv":

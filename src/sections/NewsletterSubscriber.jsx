@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import respond from "../styles/abstracts/mediaqueries";
 
 import SubscriptionForm from "../components/SubscriptionForm";
 import AlertMessage from "../components/AlertMessage";
@@ -19,6 +20,15 @@ const Wrapper = styled.section`
     justify-items: center;
     align-content: center;
     justify-content: center;
+
+    ${respond(
+      "tab-land",
+      css`
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      `
+    )}
   }
 
   .title {
@@ -30,6 +40,12 @@ const Wrapper = styled.section`
   .form-container {
     grid-column: 4 / 13;
     width: 100%;
+    ${respond(
+      "phone-port",
+      css`
+        grid-column: 1 / 13;
+      `
+    )}
   }
 
   /* .social-icons-container {

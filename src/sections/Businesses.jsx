@@ -24,7 +24,7 @@ const Wrapper = styled.section`
       `
     )}
     ${respond(
-      "phone-land",
+      "tab-port",
       css`
         grid-template-columns: 1fr;
       `
@@ -44,6 +44,9 @@ const Businesses = ({ data }) => {
   const isLaptop = useMediaQuery({
     query: "(max-width: 102.18em)",
   });
+  const isPhonePort = useMediaQuery({
+    query: "(max-width: 28.125em)",
+  });
 
   while (!languageData.businesses?.title) return "";
   const {
@@ -53,7 +56,7 @@ const Businesses = ({ data }) => {
   return (
     <Wrapper>
       <h3 className="pre-title">{preTitle}</h3>
-      <BrushedTitle scale={1.5} fontSize="5rem">
+      <BrushedTitle scale={1.5} fontSize={isPhonePort ? "3rem" : "5rem"}>
         {title}
       </BrushedTitle>
       <div className="grid">

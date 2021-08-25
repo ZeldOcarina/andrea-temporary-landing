@@ -2,6 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import styled, { css } from "styled-components";
 import { getImage } from "gatsby-plugin-image";
 import { GatsbyImage } from "gatsby-plugin-image";
+import { useMediaQuery } from "react-responsive";
+import respond from "../styles/abstracts/mediaqueries";
 
 import Button from "./Button";
 
@@ -30,10 +32,27 @@ const Wrapper = styled.article`
         align-items: flex-end;
         text-align: right;
       `;
-    }}}
+    }}
+
+    ${respond(
+      "phone-port",
+      css`
+        width: 100%;
+      `
+    )}
+    
+  
+  }
   }
 
   .logo {
+    ${respond(
+      "phone-port",
+      css`
+        width: 70%;
+        margin: 0 auto;
+      `
+    )}
   }
 
   p {
@@ -59,6 +78,16 @@ const Wrapper = styled.article`
   .btn {
     margin-top: auto;
     z-index: 100;
+
+    ${respond(
+      "phone-port",
+      css`
+        margin-top: 3rem;
+        font-size: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+      `
+    )}
   }
 
   .content-link {
@@ -68,6 +97,9 @@ const Wrapper = styled.article`
 `;
 
 const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, even, name, color }) => {
+  const isPhonePort = useMediaQuery({
+    query: "(max-width: 28.125em)",
+  });
   const [height, setHeight] = useState(0);
   const gatsbyLogo = getImage(logo.childrenImageSharp[0]);
   const gatsbyBoxImage = getImage(box.childrenImageSharp[0]);
@@ -79,7 +111,7 @@ const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, 
   }, []);
 
   return (
-    <Wrapper ref={card} style={{ height }} even={even}>
+    <Wrapper ref={card} style={{ height: isPhonePort ? "auto" : height }} even={!isPhonePort && even}>
       <div className="card-container">
         <GatsbyImage image={gatsbyLogo} alt={`${name} logo`} className="logo" />
         <p

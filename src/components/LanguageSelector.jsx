@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled, { css } from "styled-components";
 import { navigate } from "gatsby";
+import { useMediaQuery } from "react-responsive";
 
 import italyFlag from "../images/flags/it.svg";
 import usFlag from "../images/flags/us.svg";
 import { BsTriangleFill } from "react-icons/bs";
 import LanguageContext from "../context/languageContext";
+import respond from "../styles/abstracts/mediaqueries";
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,6 +44,9 @@ const Wrapper = styled.div`
 `;
 
 const LanguageSelector = ({ location }) => {
+  const isPhonePort = useMediaQuery({
+    query: "(max-width: 28.125em)",
+  });
   const { setLanguage } = React.useContext(LanguageContext);
   const [languages, setLanguages] = useState([
     {
@@ -91,19 +96,23 @@ const LanguageSelector = ({ location }) => {
             active && (
               <div key={i} className="flag-item">
                 <img src={image} className="flag" alt={name} />
-                <span className="country-name">{name}</span>
+                {!isPhonePort && <span className="country-name">{name}</span>}
               </div>
             )
           );
         })}
       {activeMenu && (
         <div className="items-container">
-          {languages.map(({ name, image, active }, i) => {
+          {languages.map(({ name, image }, i) => {
             return (
               // eslint-disable-next-line
               <div key={i} className="flag-item" role="listbox" onClick={(e) => activateLanguage(name, e)}>
-                <img src={image} className="flag" alt={name} />
-                <span className="country-name">{name}</span>
+                <img
+                  src={image}
+                  className={isPhonePort && i + 1 !== languages.length ? "flag mb-1" : "flag"}
+                  alt={name}
+                />
+                {!isPhonePort && <span className="country-name">{name}</span>}
               </div>
             );
           })}

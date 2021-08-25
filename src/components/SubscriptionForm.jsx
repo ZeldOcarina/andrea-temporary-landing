@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import isEmail from "validator/lib/isEmail";
+import respond from "../styles/abstracts/mediaqueries";
 
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from "axios";
@@ -15,6 +16,21 @@ const Wrapper = styled.form`
   width: 100%;
   font-size: 1.8rem;
 
+  ${respond(
+    "tab-land",
+    css`
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 1.5rem;
+    `
+  )}
+  ${respond(
+    "phone-port",
+    css`
+      grid-template-rows: 8rem max-content;
+      row-gap: 1.5rem;
+    `
+  )}
+
   .input,
   .button {
     height: 5rem;
@@ -25,6 +41,19 @@ const Wrapper = styled.form`
     width: 100%;
     grid-column: 1 / 6;
     grid-row: 1 / 2;
+
+    ${respond(
+      "tab-land",
+      css`
+        grid-column: 5 / 9;
+      `
+    )}
+    ${respond(
+      "phone-port",
+      css`
+        grid-column: 1 / 10;
+      `
+    )}
   }
 
   .button {
@@ -36,12 +65,40 @@ const Wrapper = styled.form`
     grid-row: 1/2;
     width: 100%;
     text-transform: uppercase;
+
+    ${respond(
+      "tab-land",
+      css`
+        grid-column: 9 / 11;
+      `
+    )}
+    ${respond(
+      "phone-port",
+      css`
+        grid-column: 10 / 15;
+      `
+    )}
   }
 
   .checkbox {
     transform: scale(2);
     grid-column: 8 / 9;
     grid-row: 1 / 2;
+
+    ${respond(
+      "tab-land",
+      css`
+        grid-row: 2 / 3;
+        grid-column: 4 / 5;
+      `
+    )}
+    ${respond(
+      "phone-port",
+      css`
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+      `
+    )}
   }
 
   .label {
@@ -49,6 +106,21 @@ const Wrapper = styled.form`
     grid-column: 9 / 15;
     grid-row: 1 / 2;
     line-height: 1.3;
+
+    ${respond(
+      "tab-land",
+      css`
+        grid-row: 2 / 3;
+        grid-column: 5 / 12;
+      `
+    )}
+    ${respond(
+      "phone-port",
+      css`
+        grid-row: 2 / 3;
+        grid-column: 3 / 15;
+      `
+    )}
   }
 
   a {
