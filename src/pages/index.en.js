@@ -5,10 +5,18 @@ import Hero from "../sections/Hero";
 import Businesses from "../sections/Businesses";
 import BottomSection from "../sections/BottomSection";
 import NewsletterSubscriber from "../sections/NewsletterSubscriber";
+import SEO from "../components/SEO";
 
 import LanguageContext from "../context/languageContext";
 
-const IndexPage = ({ data: { allBusinessesEnJson } }) => {
+const IndexPage = ({
+  data: {
+    site: {
+      siteMetadata: { englishTitle, englishDescription },
+    },
+    allBusinessesEnJson,
+  },
+}) => {
   const languageData = useContext(LanguageContext);
 
   useEffect(() => {
@@ -17,6 +25,7 @@ const IndexPage = ({ data: { allBusinessesEnJson } }) => {
 
   return (
     <main>
+      <SEO title={englishTitle} description={englishDescription} language="en" />
       <Hero />
       <Businesses data={allBusinessesEnJson} />
       <NewsletterSubscriber />
@@ -27,6 +36,12 @@ const IndexPage = ({ data: { allBusinessesEnJson } }) => {
 
 export const query = graphql`
   {
+    site {
+      siteMetadata {
+        englishDescription
+        englishTitle
+      }
+    }
     allBusinessesEnJson {
       nodes {
         extraContent

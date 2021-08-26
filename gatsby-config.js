@@ -1,13 +1,11 @@
+const siteMetadata = require("./src/content/siteMetadata");
+
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://andreadagostini.com",
-    title: "Andrea d'Agostini",
-    navbarLinks: [],
-  },
+  siteMetadata: siteMetadata,
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
@@ -15,6 +13,7 @@ module.exports = {
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -47,6 +46,7 @@ module.exports = {
         prefixDefault: true,
       },
     },
+
     /*
     {
       resolve: `gatsby-source-contentful`,
