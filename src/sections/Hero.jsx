@@ -314,7 +314,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        <Button href="https://google.com" className="hero-link">
+        <Button href="https://calendly.com/andrea-dagostini/meet-andrea" className="hero-link">
           {cta}
         </Button>
       </div>
