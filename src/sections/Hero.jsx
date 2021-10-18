@@ -224,11 +224,6 @@ const Hero = () => {
     hero: { cta, iconsTitle, preTitle, title },
   } = languageData;
 
-  // if (isTabLand) console.log("tab-land");
-  // if (isTabPort) console.log("tab-port");
-  // if (isPhoneLand) console.log("phone-land");
-  // if (isPhonePort) console.log("phone-port");
-
   return (
     <Wrapper>
       {setImage()}
@@ -314,7 +309,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        <Button href="https://calendly.com/andrea-dagostini/meet-andrea" className="hero-link">
+        <Button href="https://calendly.com/ad--31/30min" className="hero-link">
           {cta}
         </Button>
       </div>
