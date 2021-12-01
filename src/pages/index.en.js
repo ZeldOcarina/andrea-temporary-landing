@@ -26,7 +26,7 @@ const IndexPage = ({
   return (
     <main>
       <SEO title={englishTitle} description={englishDescription} language="en" />
-      <Hero />
+      <Hero english />
       <Businesses data={allBusinessesEnJson} />
       <NewsletterSubscriber />
       <BottomSection />

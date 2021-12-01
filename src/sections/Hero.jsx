@@ -157,7 +157,7 @@ const Wrapper = styled.header`
   }
 `;
 
-const Hero = () => {
+const Hero = ({ english }) => {
   const { languageData } = useContext(LanguageContext);
 
   const isTabLand = useMediaQuery({
@@ -309,7 +309,10 @@ const Hero = () => {
             />
           </div>
         </div>
-        <Button href="https://calendly.com/ad--31/30min" className="hero-link">
+        <Button
+          href={english ? "https://form.jotform.com/212477239664060" : "https://form.jotform.com/212497670890163"}
+          className="hero-link"
+        >
           {cta}
         </Button>
       </div>
