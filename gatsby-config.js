@@ -9,15 +9,13 @@ module.exports = {
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-plugin-sass`,
       options: {
-        implementation: require("node-sass"),
+        implementation: require("sass"),
       },
     },
     `gatsby-transformer-json`,
@@ -46,16 +44,7 @@ module.exports = {
         prefixDefault: true,
       },
     },
-
-    /*
     {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
-    },*/ {
       resolve: `gatsby-plugin-webfonts`,
       options: {
         fonts: {
@@ -76,5 +65,24 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: process.env.AIRTABLE_TOKEN,
+        concurrency: 5,
+        tables: [
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `Italian Businesses`,
+            mapping: { logo: `fileNode`, box: `fileNode` }
+          },
+          {
+            baseId: process.env.AIRTABLE_BASE_ID,
+            tableName: `English Businesses`,
+            mapping: { logo: `fileNode`, box: `fileNode` }
+          },
+        ]
+      }
+    }
   ],
 };

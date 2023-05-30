@@ -40,6 +40,7 @@ const Wrapper = styled.section`
 `;
 
 const Businesses = ({ data }) => {
+  console.log(data);
   const { languageData } = useContext(LanguageContext);
   const isLaptop = useMediaQuery({
     query: "(max-width: 102.18em)",
@@ -49,6 +50,7 @@ const Businesses = ({ data }) => {
   });
 
   while (!languageData.businesses?.title) return "";
+
   const {
     businesses: { preTitle, title },
   } = languageData;
@@ -60,8 +62,8 @@ const Businesses = ({ data }) => {
         {title}
       </BrushedTitle>
       <div className="grid">
-        {data.nodes.map((businessData, i) => {
-          return <BusinessCard {...businessData} key={i} even={isLaptop ? (i + 1) % 2 === 0 : false} />;
+        {data.map((businessData, i) => {
+          return <BusinessCard {...businessData} key={i} />;
         })}
       </div>
     </Wrapper>

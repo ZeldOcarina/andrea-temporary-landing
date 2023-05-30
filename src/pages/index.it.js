@@ -5,16 +5,13 @@ import Hero from "../sections/Hero";
 import Businesses from "../sections/Businesses";
 import BottomSection from "../sections/BottomSection";
 import NewsletterSubscriber from "../sections/NewsletterSubscriber";
-import SEO from "../components/SEO";
+import Seo from "../components/SEO";
 
 import LanguageContext from "../context/languageContext";
 
 const IndexPage = ({
   data: {
-    allBusinessesItJson,
-    site: {
-      siteMetadata: { italianTitle, italianDescription },
-    },
+    italianBusinessesData: { italianBusinessesData }
   },
 }) => {
   const languageData = useContext(LanguageContext);
@@ -24,50 +21,62 @@ const IndexPage = ({
   }, [languageData]);
   return (
     <main>
-      <SEO title={italianTitle} description={italianDescription} language="it" />
       <Hero />
-      <Businesses data={allBusinessesItJson} />
+      <Businesses data={italianBusinessesData} />
       <NewsletterSubscriber />
       <BottomSection />
     </main>
   );
 };
 
+export const Head = ({
+  data: {
+    site: {
+      siteMetadata: { italianTitle, italianDescription },
+    },
+  },
+}) => <Seo title={italianTitle} description={italianDescription} language="it" />;
+
 export const query = graphql`
-  {
-    site {
+  query ItalianBusinesses {
+  site {
       siteMetadata {
         italianDescription
         italianTitle
       }
     }
-    allBusinessesItJson {
-      nodes {
-        extraContent
-        extraLogo {
-          name
-          childrenImageSharp {
-            gatsbyImageData
-          }
-        }
-        name
-        content
-        cta
+  italianBusinessesData:allAirtable(
+    filter: {table: {eq: "Italian Businesses"}}
+    sort: {data: {rowNumber: ASC}}
+  ) {
+    italianBusinessesData:nodes {
+      id
+      data {
         box {
-          childrenImageSharp {
-            gatsbyImageData
+          localFiles {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
-        link
         logo {
-          childrenImageSharp {
-            gatsbyImageData
+          localFiles {
+            childImageSharp {
+              gatsbyImageData
+            }
           }
         }
         color
+        content
+        cta
+        defaultAlignment
+        link
+        maxWidth
+        name
       }
     }
   }
+}
 `;
 
 export default IndexPage;

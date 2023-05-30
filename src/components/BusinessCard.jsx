@@ -1,16 +1,21 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
 import { getImage } from "gatsby-plugin-image";
 import { GatsbyImage } from "gatsby-plugin-image";
-import { useMediaQuery } from "react-responsive";
+
 import respond from "../styles/abstracts/mediaqueries";
 
 import Button from "./Button";
 
-const Wrapper = styled.article`
+const StyledBusinessCard = styled.article`
   position: relative;
   width: 100%;
   padding: 10%;
+  aspect-ratio: 1 / 1;
+
+  @media only screen and (max-width: 750px) {
+    aspect-ratio: unset;
+  }
 
   & > * {
     position: relative;
@@ -22,15 +27,20 @@ const Wrapper = styled.article`
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 100%;
 
-    ${({ even }) => {
-      if (!even) return;
+    ${({ defaultAlignment }) => {
+      if (defaultAlignment === "left") return;
       return css`
         margin-left: auto;
         align-items: flex-end;
         text-align: right;
+
+        @media only screen and (max-width: 768px) {
+          align-items: flex-start;
+          text-align: left;
+        }
       `;
     }}
 
@@ -40,17 +50,22 @@ const Wrapper = styled.article`
         width: 100%;
       `
     )}
-    
-  
-  }
   }
 
   .logo {
+    max-width: ${({ maxWidth }) => {
+      console.log(maxWidth);
+      return maxWidth ? maxWidth : "unset";
+    }};
     ${respond(
       "phone-port",
       css`
-        width: 70%;
+        /* width: 70%; */
         margin: 0 auto;
+
+        img {
+          object-fit: contain !important;
+        }
       `
     )}
   }
@@ -79,11 +94,17 @@ const Wrapper = styled.article`
     margin-top: auto;
     z-index: 100;
 
+    @media only screen and (max-width: 750px) {
+      margin-top: 4rem;
+      font-size: 1.4rem;
+      padding: 2rem 3rem;
+    }
+
     ${respond(
       "phone-port",
       css`
         margin-top: 3rem;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-left: auto;
         margin-right: auto;
       `
@@ -96,34 +117,26 @@ const Wrapper = styled.article`
   }
 `;
 
-const BusinessCard = ({ content, cta, link, extraContent, extraLogo, logo, box, even, name, color }) => {
-  const isPhonePort = useMediaQuery({
-    query: "(max-width: 28.125em)",
-  });
-  const [height, setHeight] = useState(0);
-  const gatsbyLogo = getImage(logo.childrenImageSharp[0]);
-  const gatsbyBoxImage = getImage(box.childrenImageSharp[0]);
-  const gatsbyExtraLogo = getImage(extraLogo?.childrenImageSharp ? extraLogo?.childrenImageSharp[0] : undefined);
-  const card = useRef(null);
-
-  useEffect(() => {
-    setHeight(card.current.offsetWidth);
-  }, []);
+const BusinessCard = ({ data: { content, cta, link, logo, box, name, color, defaultAlignment, maxWidth } }) => {
+  const gatsbyLogo = getImage(logo.localFiles[0]);
+  const gatsbyBoxImage = getImage(box.localFiles[0]);
 
   return (
-    <Wrapper ref={card} style={{ height: isPhonePort ? "auto" : height }} even={!isPhonePort && even}>
+    <StyledBusinessCard color={color} defaultAlignment={defaultAlignment} maxWidth={maxWidth}>
       <div className="card-container">
         <GatsbyImage image={gatsbyLogo} alt={`${name} logo`} className="logo" />
         <p
           className={color === "white" ? "description text-white" : "description"}
           dangerouslySetInnerHTML={{ __html: content }}
         ></p>
-        <Button className="btn" href={link}>
-          {cta}
-        </Button>
+        {link && cta && (
+          <Button className="btn" href={link}>
+            {cta}
+          </Button>
+        )}
       </div>
       <GatsbyImage image={gatsbyBoxImage} alt={`${name} background`} className="bg-image" />
-    </Wrapper>
+    </StyledBusinessCard>
   );
 };
 

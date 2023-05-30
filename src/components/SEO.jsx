@@ -1,10 +1,9 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, language }) => {
   return (
-    <Helmet title={title || "Andrea d'Agostini"} htmlAttributes={{ lang: language }}>
+    <>
+      <html title={title || "Andrea d'Agostini"} lang={language} />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -13,7 +12,7 @@ const SEO = ({ title, description, language }) => {
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
       <meta name="description" content={description} />
-    </Helmet>
+    </>
   );
 };
 
