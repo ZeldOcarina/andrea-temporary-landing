@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.a`
   color: var(--black);
   background-color: var(--color-primary);
-  padding: 1.8rem 3rem;
+  padding: 1.5rem 2rem;
   display: block;
   text-align: center;
   font-weight: 700;

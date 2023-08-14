@@ -22,6 +22,9 @@ const StyledBottomCardLogos = styled.div`
   .title {
     color: var(--bottom-card-logos-title-color);
 
+    @media only screen and (max-width: 1950px) {
+      font-size: 1.6rem;
+    }
     @media only screen and (max-width: 1850px) {
       display: none;
     }
@@ -48,7 +51,7 @@ const StyledBottomCardLogos = styled.div`
     justify-content: space-between;
     flex-wrap: wrap;
 
-    @media only screen and (max-width: 1700px) {
+    @media only screen and (max-width: 1710px) {
       justify-content: center;
       gap: var(--gutter);
     }
@@ -56,7 +59,7 @@ const StyledBottomCardLogos = styled.div`
     .logo {
       --logos-height: 4.3rem;
 
-      @media only screen and (max-width: 1700px) {
+      @media only screen and (max-width: 1720px) {
         --logos-height: 3.5rem;
       }
       @media only screen and (max-width: 1630px) {

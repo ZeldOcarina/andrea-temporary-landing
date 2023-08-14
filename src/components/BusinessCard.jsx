@@ -43,7 +43,7 @@ const StyledBusinessCard = styled.article`
       ${({ $hasBottomLogosStripe }) => {
         return $hasBottomLogosStripe
           ? css`
-              width: 75%;
+              width: 80%;
             `
           : "";
       }}
