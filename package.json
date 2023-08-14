@@ -11,7 +11,7 @@
     "develop": "doppler run -- gatsby develop",
     "start": "doppler run -- gatsby develop",
     "startClean": "gatsby clean && gatsby develop",
-    "build": "doppler run -- gatsby build",
+    "build": "gatsby build",
     "serve": "gatsby serve",
     "manualServe": "serve public",
     "clean": "gatsby clean"
