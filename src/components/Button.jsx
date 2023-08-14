@@ -4,12 +4,13 @@ import styled from "styled-components";
 const Wrapper = styled.a`
   color: var(--black);
   background-color: var(--color-primary);
-  padding: 2rem 4rem;
+  padding: 1.8rem 3rem;
   display: block;
-  width: max-content;
+  text-align: center;
   font-weight: 700;
   transition: all 0.2s ease-in-out;
   text-transform: uppercase;
+  border-radius: 10px;
 
   &:hover {
     transform: scale(1.03);

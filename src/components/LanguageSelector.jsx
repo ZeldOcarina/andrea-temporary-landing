@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import styled, { css } from "styled-components";
 import { navigate } from "gatsby";
 import { useMediaQuery } from "react-responsive";
@@ -17,8 +17,8 @@ const Wrapper = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  ${({ activeMenu }) =>
-    activeMenu
+  ${({ $activeMenu }) =>
+    $activeMenu
       ? css`
           flex-direction: column-reverse;
           gap: 1rem;
@@ -64,20 +64,23 @@ const LanguageSelector = ({ location }) => {
 
   const [activeMenu, setActiveMenu] = useState(false);
 
-  function activateLanguage(name, e) {
-    const newLanguages = languages.map((language) => {
-      if (language.active) {
-        setLanguage(language.abbreviation);
-      }
-      return {
-        ...language,
-        active: (language.active = language.name === name),
-      };
-    });
+  const activateLanguage = useCallback(
+    (name, e) => {
+      const newLanguages = languages.map((language) => {
+        if (language.active) {
+          setLanguage(language.abbreviation);
+        }
+        return {
+          ...language,
+          active: (language.active = language.name === name),
+        };
+      });
 
-    setLanguages(newLanguages);
-    navigate(`/${name[0] + name[1]}`);
-  }
+      setLanguages(newLanguages);
+      navigate(`/${name[0] + name[1]}`);
+    },
+    [languages, setLanguage]
+  );
 
   useEffect(() => {
     if (location.pathname === "/en") {
@@ -85,10 +88,10 @@ const LanguageSelector = ({ location }) => {
     } else if (location.pathname === "/it") {
       activateLanguage("italian");
     }
-  }, []);
+  }, [activateLanguage, location.pathname]);
 
   return (
-    <Wrapper className="language-selector" onClick={() => setActiveMenu(!activeMenu)} activeMenu={activeMenu}>
+    <Wrapper className="language-selector" onClick={() => setActiveMenu(!activeMenu)} $activeMenu={activeMenu}>
       {!activeMenu &&
         languages.map(({ name, image, active }, i) => {
           return (

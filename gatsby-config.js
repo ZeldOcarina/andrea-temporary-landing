@@ -74,12 +74,12 @@ module.exports = {
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `Italian Businesses`,
-            mapping: { logo: `fileNode`, box: `fileNode` }
+            mapping: { logo: `fileNode`, box: `fileNode`, logos: `fileNode`, subTextLogos: `fileNode` }
           },
           {
             baseId: process.env.AIRTABLE_BASE_ID,
             tableName: `English Businesses`,
-            mapping: { logo: `fileNode`, box: `fileNode` }
+            mapping: { logo: `fileNode`, box: `fileNode`, logos: `fileNode`, subTextLogos: `fileNode` }
           },
         ]
       }

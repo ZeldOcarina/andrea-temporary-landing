@@ -11,13 +11,14 @@ export default createGlobalStyle`
 html {
   overflow-x: hidden;
   font-size: 10px;
+  scroll-behavior: smooth;
 
   ${respond(
-    "4k-tv",
-    css`
+  "4k-tv",
+  css`
       font-size: 20px;
     `
-  )}
+)}
 }
 
 body {
@@ -32,19 +33,19 @@ body {
   overflow-y: hidden;
 
   ${respond(
-    "phone-land",
-    css`
+  "phone-land",
+  css`
       font-size: var(--mobile-font-size);
       overflow-wrap: break-word;
     `
-  )}
+)}
   ${respond(
-    "iphone-5",
-    css`
+  "iphone-5",
+  css`
       font-size: var(--mobile-font-size);
       overflow-wrap: anywhere;
     `
-  )}
+)}
 }
 
 h1 {
@@ -62,17 +63,17 @@ h6 {
   color: var(--black);
 
   ${respond(
-    "tab-land",
-    css`
+  "tab-land",
+  css`
       font-size: 3.5rem;
     `
-  )}
+)}
   ${respond(
-    "phone-land",
-    css`
+  "phone-land",
+  css`
       font-size: var(--mobile-title-font-size);
     `
-  )}
+)}
 }
 
 h2,
@@ -83,17 +84,17 @@ h6 {
   font-size: var(--title-font-size);
 
   ${respond(
-    "tab-land",
-    css`
+  "tab-land",
+  css`
       font-size: 3rem;
     `
-  )}
+)}
   ${respond(
-    "phone-port",
-    css`
+  "phone-port",
+  css`
       font-size: 2.5rem;
     `
-  )}
+)}
 }
 
 p {
@@ -124,17 +125,17 @@ button {
 
 .container {
   ${respond(
-    "phone-port",
-    css`
+  "phone-port",
+  css`
       padding: 0 2rem;
     `
-  )}
+)}
   ${respond(
-    "iphone-5",
-    css`
+  "iphone-5",
+  css`
       padding: 0;
       max-width: 95vw;
     `
-  )}
+)}
 }
 `;

@@ -309,10 +309,7 @@ const Hero = ({ english }) => {
             />
           </div>
         </div>
-        <Button
-          href={english ? "https://form.jotform.com/212477239664060" : "https://form.jotform.com/212497670890163"}
-          className="hero-link"
-        >
+        <Button href="#form" className="hero-link">
           {cta}
         </Button>
       </div>

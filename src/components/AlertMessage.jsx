@@ -9,8 +9,8 @@ const Wrapper = styled.span`
   padding: 1.5rem;
   border-radius: 3px;
   z-index: 500;
-  ${({ successful }) => {
-    return successful
+  ${({ $successful }) => {
+    return $successful
       ? css`
           background-color: #c5e3c3;
           color: darkgreen;
@@ -27,7 +27,7 @@ const AlertMessage = ({ message, successful, setAlertState }) => {
     setAlertState({ success: false, message: "", hidden: true });
   }, 3000);
 
-  return <Wrapper successful={successful}>{message}</Wrapper>;
+  return <Wrapper $successful={successful}>{message}</Wrapper>;
 };
 
 export default AlertMessage;

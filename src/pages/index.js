@@ -60,8 +60,28 @@ export const query = graphql`
             }
           }
         }
+        logos {
+          localFiles {
+            childImageSharp {
+              gatsbyImageData
+            }
+            id
+          }
+        }
+        logosTitle
+        logosBgColor
+        logosTextColor
         logo {
           localFiles {
+            childImageSharp {
+              gatsbyImageData
+            }
+          }
+        }
+        subTextTitle
+        subTextLogos {
+          localFiles {
+            id
             childImageSharp {
               gatsbyImageData
             }

@@ -45,7 +45,13 @@ const Wrapper = styled.form`
     ${respond(
       "tab-land",
       css`
-        grid-column: 5 / 9;
+        grid-column: 4 / 8;
+      `
+    )}
+    ${respond(
+      "tab-port",
+      css`
+        grid-column: 1 / 10;
       `
     )}
     ${respond(
@@ -69,11 +75,11 @@ const Wrapper = styled.form`
     ${respond(
       "tab-land",
       css`
-        grid-column: 9 / 11;
+        grid-column: 8 / 12;
       `
     )}
     ${respond(
-      "phone-port",
+      "tab-port",
       css`
         grid-column: 10 / 15;
       `
@@ -93,7 +99,7 @@ const Wrapper = styled.form`
       `
     )}
     ${respond(
-      "phone-port",
+      "tab-port",
       css`
         grid-row: 2 / 3;
         grid-column: 1 / 3;
@@ -115,7 +121,7 @@ const Wrapper = styled.form`
       `
     )}
     ${respond(
-      "phone-port",
+      "tab-port",
       css`
         grid-row: 2 / 3;
         grid-column: 3 / 15;
@@ -198,13 +204,8 @@ const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
         value={formData.privacy}
         checked={formData.privacy}
       />
-      <label
-        type="checkbox"
-        name="privacy"
-        htmlFor="privacy"
-        className="label"
-        dangerouslySetInnerHTML={{ __html: privacy }}
-      />
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label htmlFor="privacy" className="label" dangerouslySetInnerHTML={{ __html: privacy }} />
 
       <button type="submit" className="button">
         {cta}{" "}

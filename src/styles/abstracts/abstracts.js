@@ -28,5 +28,8 @@ export default createGlobalStyle`
     //SECTIONS
     --section-width: 70%;
     --laptop-container: 80%;
+
+    --gutter: 2rem;
+    --big-gutter: 4rem;
   }
 `;

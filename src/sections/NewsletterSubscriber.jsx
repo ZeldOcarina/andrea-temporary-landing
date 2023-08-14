@@ -69,7 +69,7 @@ const NewsletterSubscriber = () => {
   } = languageData;
 
   return (
-    <Wrapper className="newsletter-block">
+    <Wrapper className="newsletter-block" id="form">
       <div className="container">
         <h2 className="title">{title}</h2>
         <div className="form-container">

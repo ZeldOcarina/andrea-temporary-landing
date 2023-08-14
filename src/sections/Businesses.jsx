@@ -40,11 +40,7 @@ const Wrapper = styled.section`
 `;
 
 const Businesses = ({ data }) => {
-  console.log(data);
   const { languageData } = useContext(LanguageContext);
-  const isLaptop = useMediaQuery({
-    query: "(max-width: 102.18em)",
-  });
   const isPhonePort = useMediaQuery({
     query: "(max-width: 28.125em)",
   });
