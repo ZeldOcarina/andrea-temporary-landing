@@ -6,6 +6,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: siteMetadata,
+  flags: {
+    DEV_SSR: true,
+    FAST_DEV: true
+  },
   plugins: [
     "gatsby-plugin-styled-components",
     "gatsby-plugin-image",

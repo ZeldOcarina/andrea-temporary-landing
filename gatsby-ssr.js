@@ -9,11 +9,11 @@ exports.wrapRootElement = ({ element }) => {
   return <LanguageProvider>{element}</LanguageProvider>;
 };
 
-exports.wrapPageElement = ({ element }) => {
+exports.wrapPageElement = ({ element, location }) => {
   return (
     <>
       <GlobalStyles />
-      <Layout>{element}</Layout>
+      <Layout location={element.props.location}>{element}</Layout>
     </>
   );
 };

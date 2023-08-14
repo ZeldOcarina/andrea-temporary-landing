@@ -11,7 +11,7 @@
     "develop": "doppler run -- gatsby develop",
     "start": "doppler run -- gatsby develop",
     "startClean": "gatsby clean && gatsby develop",
-    "build": "gatsby build",
+    "build": "doppler run -- gatsby build",
     "serve": "gatsby serve",
     "manualServe": "serve public",
     "clean": "gatsby clean"
@@ -40,7 +40,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.10.1",
     "react-responsive": "^9.0.2",
-    "sass": "^1.64.2",
+    "sass": "^1.65.1",
     "styled-components": "^6.0.7",
     "validator": "^13.11.0"
   }

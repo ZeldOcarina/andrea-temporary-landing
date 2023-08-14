@@ -83,6 +83,7 @@ const LanguageSelector = ({ location }) => {
   );
 
   useEffect(() => {
+    if (!location.pathname) return;
     if (location.pathname === "/en") {
       activateLanguage("english");
     } else if (location.pathname === "/it") {
