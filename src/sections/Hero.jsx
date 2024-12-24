@@ -309,7 +309,7 @@ const Hero = ({ english }) => {
             />
           </div>
         </div>
-        <Button href="#form" className="hero-link">
+        <Button href="https://funnel.monarchy.io" className="hero-link">
           {cta}
         </Button>
       </div>

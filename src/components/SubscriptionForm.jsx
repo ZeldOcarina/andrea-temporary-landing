@@ -160,17 +160,19 @@ const SubscriptionForm = ({ success, setSuccess, cta, privacy }) => {
       setSuccess({ success: false, message: "Unknown error", hidden: false });
     }
 
-    const response = await fetch("https://sj-api.com/externalapp/track", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: process.env.GATSBY_SALESJET_KEY,
-      },
-      body: JSON.stringify({
-        event_name: "newsletter_subscription",
-        contact: { email: formData.email },
-      }),
-    });
+    const response = await fetch(
+      "https://services.leadconnectorhq.com/hooks/LC2A6xmpdZgvgHohkfkV/webhook-trigger/d49cefc5-e177-474f-a9b2-25fc7de477f9",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          event_name: "newsletter_subscription",
+          contact: { email: formData.email },
+        }),
+      }
+    );
 
     if (response.status !== 200)
       setSuccess({ success: false, message: "Unknown error. Please try again later.", hidden: false });
