@@ -198,8 +198,8 @@ const BusinessCard = ({
     logosTextColor,
   },
 }) => {
-  const gatsbyLogo = getImage(logo.localFiles[0]);
-  const gatsbyBoxImage = getImage(box.localFiles[0]);
+  const gatsbyLogo = logo?.localFiles?.at(0) ? getImage(logo.localFiles[0]) : null;
+  const gatsbyBoxImage = box?.localFiles?.at(0) ? getImage(box.localFiles[0]) : null;
   const hasBottomLogosStripe = !!(logos && logos.localFiles && logos.localFiles.length > 0);
 
   return (
@@ -210,7 +210,7 @@ const BusinessCard = ({
       $hasBottomLogosStripe={hasBottomLogosStripe}
     >
       <div className="card-container">
-        <GatsbyImage image={gatsbyLogo} alt={`${name} logo`} className="logo" />
+        {gatsbyLogo && <GatsbyImage image={gatsbyLogo} alt={`${name} logo`} className="logo" />}
         <p
           className={color === "white" ? "description text-white" : "description"}
           dangerouslySetInnerHTML={{ __html: content }}
@@ -233,7 +233,7 @@ const BusinessCard = ({
           maxWidth={maxWidth}
         />
       )}
-      <GatsbyImage image={gatsbyBoxImage} alt={`${name} background`} className="bg-image" />
+      {gatsbyBoxImage && <GatsbyImage image={gatsbyBoxImage} alt={`${name} background`} className="bg-image" />}
     </StyledBusinessCard>
   );
 };
