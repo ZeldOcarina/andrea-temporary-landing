@@ -47,7 +47,7 @@ export const query = graphql`
       }
     }
   englishBusinessesData:allAirtable(
-    filter: {table: {eq: "English Businesses"}}
+    filter: {table: {eq: "English Businesses"}, data: {isActive: {eq: true}}},
     sort: {data: {rowNumber: ASC}}
   ) {
     englishBusinessesData:nodes {
